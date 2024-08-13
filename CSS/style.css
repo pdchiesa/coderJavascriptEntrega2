@@ -33,7 +33,6 @@ body {
   width: 100%;
 }
 
-/* Animation */
 #title {
   border-right: solid 3px rgba(0, 0, 0, 0.75);
   white-space: pre;
@@ -44,13 +43,13 @@ body {
   max-width: 500px;
 }
 
-/* Animation */
+/* animacion */
 #title {
   animation: animated-text 2s steps(11, end) 0.5s 1 normal both,
     animated-cursor 750ms steps(11, end) infinite;
 }
 
-/* text animation */
+/* animacion del texto */
 
 @keyframes animated-text {
   from {
@@ -61,7 +60,7 @@ body {
   }
 }
 
-/* cursor animations */
+/* animacion del cursor */
 
 @keyframes animated-cursor {
   from {
@@ -86,7 +85,6 @@ form input {
   font-size: 17px;
   border: none;
   outline: none;
-  /* border-radius: 15; */
   border-top-left-radius: 17px;
   border-bottom-left-radius: 17px;
   max-width: 500px;
@@ -135,19 +133,15 @@ form button {
   border-radius: 10px;
 }
 
-.darker-todo {
+.fondo-todo {
   background-color: #f6fa23;
 }
 
 .todo li {
   padding: 7px;
-  /* word-wrap: break-word; */
-  /* flex-wrap: wrap; */
   font-size: 20px;
-  flex: 1; /* To push the trash and the check button to the right */
+  flex: 1;
   border-radius: 30px;
-
-  /* wraps the links */
   overflow-wrap: anywhere;
 }
 

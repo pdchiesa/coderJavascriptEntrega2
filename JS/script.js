@@ -1,4 +1,4 @@
-// Selectors
+// Selectores
 
 let toDoInput = document.getElementById("add-nota");
 let toDoBtn = document.getElementById("btn-add-nota");
@@ -8,13 +8,15 @@ let toDoList = document.querySelector(".todo-list");
 
 toDoBtn.addEventListener("click", addToDo);
 toDoList.addEventListener("click", deletecheck);
+// DOMContentLoaded carga el listado si existian datos en el local storage
 document.addEventListener("DOMContentLoaded", getTodos);
 
-// Functions;
-function addToDo() {
-  // crea el DIV;
+function addToDo(event) {
+  // evita que la pagina se recargue
+  event.preventDefault();
+  // crea el DIV contenedor de notas;
   let toDoDiv = document.createElement("div");
-  toDoDiv.classList.add("todo", "darker-todo");
+  toDoDiv.classList.add("todo", "fondo-todo");
 
   // Crea el LI
   let newToDo = document.createElement("li");
@@ -31,12 +33,12 @@ function addToDo() {
     // check btn;
     let checked = document.createElement("button");
     checked.innerHTML = '<i class="fas fa-check"></i>';
-    checked.classList.add("check-btn", "darker-todo");
+    checked.classList.add("check-btn", "fondo-todo");
     toDoDiv.appendChild(checked);
     // delete btn;
     let deleted = document.createElement("button");
     deleted.innerHTML = '<i class="fas fa-trash"></i>';
-    deleted.classList.add("delete-btn", "darker-todo");
+    deleted.classList.add("delete-btn", "fondo-todo");
     toDoDiv.appendChild(deleted);
 
     // agrega tarea a la lista;
@@ -52,11 +54,10 @@ function deletecheck(event) {
 
   // delete
   if (item.classList[0] === "delete-btn") {
-    // item.parentElement.remove();
-    // animation
+    // animacion de  caer al eliminar
     item.parentElement.classList.add("caer");
 
-    //removing local todos;
+    //borra item del local storage;
     removeLocalTodos(item.parentElement);
 
     item.parentElement.addEventListener("transitionend", function () {
@@ -96,7 +97,7 @@ function getTodos() {
   todos.forEach(function (todo) {
     // toDo DIV;
     let toDoDiv = document.createElement("div");
-    toDoDiv.classList.add("todo", "darker-todo");
+    toDoDiv.classList.add("todo", "fondo-todo");
 
     // Create LI
     let newToDo = document.createElement("li");
@@ -108,12 +109,12 @@ function getTodos() {
     // check btn;
     let checked = document.createElement("button");
     checked.innerHTML = '<i class="fas fa-check"></i>';
-    checked.classList.add("check-btn", "darker-todo");
+    checked.classList.add("check-btn", "fondo-todo");
     toDoDiv.appendChild(checked);
     // delete btn;
     let deleted = document.createElement("button");
     deleted.innerHTML = '<i class="fas fa-trash"></i>';
-    deleted.classList.add("delete-btn", "darker-todo");
+    deleted.classList.add("delete-btn", "fondo-todo");
     toDoDiv.appendChild(deleted);
 
     // Append to list;
